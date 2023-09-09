@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace Thiktak\FilamentSimpleListEntry;
 
 use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
@@ -20,7 +20,7 @@ class FilamentSimpleListEntryServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'thiktak-filament-simple-list-entry';
 
-    public static string $viewNamespace = 'thiktak::filament-simple-list-entry';
+    public static string $viewNamespace = 'thiktak-filament-simple-list-entry';
 
     public function configurePackage(Package $package): void
     {
@@ -29,8 +29,7 @@ class FilamentSimpleListEntryServiceProvider extends PackageServiceProvider
          *
          * More info: https://github.com/spatie/laravel-package-tools
          */
-        $package->name(static::$name)
-            ->hasViews();
+        $package->name(static::$name);
         //->hasCommands($this->getCommands())
         /*->hasInstallCommand(function (InstallCommand $command) {
                 $command

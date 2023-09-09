@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace Thiktak\FilamentSimpleListEntry;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;

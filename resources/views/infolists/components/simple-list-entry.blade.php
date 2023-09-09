@@ -31,7 +31,7 @@
                 $tagHref = $getItemUrl($itemElement);
                 $tag = $tagHref ? 'a' : 'div';
                 
-                $tagAttributes = $attributes->merge(['class' => $l2Class])->merge($getExtraItemAttributes($itemElement), escape: false);
+                $tagAttributes = $attributes->merge(['class' => $l2Class])->merge($getItemExtraAttributes($itemElement), escape: false);
             @endphp
             <div data-l="2" {{ $tagAttributes }} class="{{ $inline ? 'inline-block' : 'block' }}">
 
