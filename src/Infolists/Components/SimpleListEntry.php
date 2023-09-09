@@ -31,7 +31,7 @@ class SimpleListEntry extends Entry
     use Traits\HasItemActions;
     use Traits\HasItemExtraAttributes;
 
-    protected string $view = 'infolists.components.simple-list-entry';
+    protected string $view = 'thiktak-filament-simple-list-entry::infolists.components.simple-list-entry';
 
     public Closure | string | null $separator = ', ';
 }

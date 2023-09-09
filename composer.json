@@ -41,7 +41,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Thiktak\\FilamentSimpleListEntry\\": "src/",
+            "Thiktak\\FilamentSimpleListEntry\\": "src/"
         }
     },
     "autoload-dev": {
@@ -67,10 +67,7 @@
         "laravel": {
             "providers": [
                 "Thiktak\\FilamentSimpleListEntry\\FilamentSimpleListEntryServiceProvider"
-            ],
-            "aliases": {
-                "FilamentSimpleListEntry": "Thiktak\\FilamentSimpleListEntry\\Facades\\FilamentSimpleListEntry"
-            }
+            ]
         }
     },
     "minimum-stability": "dev",

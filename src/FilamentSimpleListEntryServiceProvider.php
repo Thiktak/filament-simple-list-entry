@@ -18,7 +18,7 @@ use VendorName\Skeleton\Testing\TestsSkeleton;
 
 class FilamentSimpleListEntryServiceProvider extends PackageServiceProvider
 {
-    public static string $name = 'filament-simple-list-entry';
+    public static string $name = 'thiktak-filament-simple-list-entry';
 
     public static string $viewNamespace = 'thiktak::filament-simple-list-entry';
 
@@ -30,18 +30,19 @@ class FilamentSimpleListEntryServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package->name(static::$name)
-            ->hasCommands($this->getCommands())
-            ->hasInstallCommand(function (InstallCommand $command) {
+            ->hasViews();
+        //->hasCommands($this->getCommands())
+        /*->hasInstallCommand(function (InstallCommand $command) {
                 $command
                     ->publishConfigFile()
                     ->publishMigrations()
                     ->askToRunMigrations()
                     ->askToStarRepoOnGitHub('Thiktak/filament-simple-list-entry');
-            });
+            });*/
 
         $configFileName = $package->shortName();
 
-        if (file_exists($package->basePath("/../config/{$configFileName}.php"))) {
+        /*if (file_exists($package->basePath("/../config/{$configFileName}.php"))) {
             $package->hasConfigFile();
         }
 
@@ -51,7 +52,7 @@ class FilamentSimpleListEntryServiceProvider extends PackageServiceProvider
 
         if (file_exists($package->basePath('/../resources/lang'))) {
             $package->hasTranslations();
-        }
+        }*/
 
         if (file_exists($package->basePath('/../resources/views'))) {
             $package->hasViews(static::$viewNamespace);
