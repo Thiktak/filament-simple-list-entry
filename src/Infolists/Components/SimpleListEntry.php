@@ -18,7 +18,7 @@ class SimpleListEntry extends Entry
     use Traits\HasItemActions;
     use Traits\HasItemExtraAttributes;
     use Traits\HasItemIcon;
-    use Traits\HasItemlabel;
+    use Traits\HasItemLabel;
     use Traits\HasItems;
     use Traits\HasItemUrl;
     use Traits\HasListStyle;
