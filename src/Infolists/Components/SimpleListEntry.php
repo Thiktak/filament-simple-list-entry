@@ -12,6 +12,7 @@ use Thiktak\FilamentSimpleListEntry\Infolists\Traits;
 class SimpleListEntry extends Entry
 {
     use HasBadge;
+
     //use HasHeading;
     use HasExtraAttributes;
     use Traits\HasItemActions;
