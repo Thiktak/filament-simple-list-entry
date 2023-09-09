@@ -12,6 +12,7 @@ class SimpleListEntry extends Entry
 {
     use HasBadge;
     use HasExtraAttributes;
+    use Traits\HasEmptyState;
     use Traits\HasItemActions;
     use Traits\HasItemExtraAttributes;
     use Traits\HasItemIcon;
@@ -19,7 +20,6 @@ class SimpleListEntry extends Entry
     use Traits\HasItems;
     use Traits\HasItemUrl;
     use Traits\HasListStyle;
-    use Traits\HasEmptyState;
 
     protected string $view = 'thiktak-filament-simple-list-entry::infolists.components.simple-list-entry';
 
