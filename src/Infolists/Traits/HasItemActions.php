@@ -12,6 +12,7 @@ trait HasItemActions
     public function ItemActions(Closure | ActionGroup | array | null $itemActions): self
     {
         $this->itemActions = $itemActions;
+
         return $this;
     }
 
@@ -19,7 +20,7 @@ trait HasItemActions
     {
         return $this->evaluate($this->itemActions, [
             'record' => $record,
-            'state'  => $this->getState(),
+            'state' => $this->getState(),
         ]);
     }
 }

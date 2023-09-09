@@ -13,10 +13,11 @@ enum SimpleListListStyle: string
 
             if (is_string($name) && $name === $status->name) {
                 return $status->value;
-            } else if (is_object($name) && $name === $status) {
+            } elseif (is_object($name) && $name === $status) {
                 return $status->value;
             }
         }
+
         throw new \ValueError("$name is not a valid backing value for enum " . self::class);
     }
 }

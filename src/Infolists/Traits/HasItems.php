@@ -12,6 +12,7 @@ trait HasItems
     public function items(Closure | Collection | array | null $items = []): self
     {
         $this->items = $items;
+
         return $this;
     }
 
