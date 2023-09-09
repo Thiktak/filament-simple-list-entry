@@ -46,6 +46,10 @@ All methods:
     * ```->badge(true)``` activate the badge for each line. Desactivate itemActions, itemDescription
     * ```->separator(',')``` change the separator, by default ```, ``` (coma space)
     * ```->getStateUsing(['a', 'b', 'c'])``` specify manually the data to be used oterwize use the relationship
+    * ```->emptyStateEnabled(true)``` activate or not the Empty State. Default true
+    * ```->emptyStateHeading('No data')``` change the Heading of the Empty State
+    * ```->emptyStateDescription('There is nothing')``` change the Description of the Empty State
+    * ```->emptyStateIcon('heroicon-o-x-mark')``` change the Icon of the Empty State
 
 * Record specific (all are Closure compatible):
     * ```->itemLabel(fn ($record) => $record->item)``` specify the label. By default, will try to stringify the record

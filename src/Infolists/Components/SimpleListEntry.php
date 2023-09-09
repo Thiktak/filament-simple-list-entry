@@ -19,6 +19,7 @@ class SimpleListEntry extends Entry
     use Traits\HasItems;
     use Traits\HasItemUrl;
     use Traits\HasListStyle;
+    use Traits\HasEmptyState;
 
     protected string $view = 'thiktak-filament-simple-list-entry::infolists.components.simple-list-entry';
 
