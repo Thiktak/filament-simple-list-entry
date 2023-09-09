@@ -26,7 +26,7 @@
         
     @endphp
     <div data-l="1" class="{{ $l1Class }}">
-        @foreach ($items as $itemKey => $itemElement)
+        @forelse ($items as $itemKey => $itemElement)
             @php
                 $tagHref = $getItemUrl($itemElement);
                 $tag = $tagHref ? 'a' : 'div';
@@ -74,6 +74,33 @@
             @if (!$loop->last && !$hasBadge)
                 <span>{{ $separator }}</span>
             @endif
-        @endforeach
+        @empty
+            @if ($getEmptyStateEnabled())
+                @if ($isStyleList)
+                    <x-filament::section
+                        class="fi-ta-empty-state-content mx-auto grid max-w-lg justify-items-center text-center">
+                        <div>
+                            <div
+                                class="fi-ta-empty-state-icon-ctn mb-4 rounded-full bg-gray-100 p-3 dark:bg-gray-500/20 inline-block">
+                                <x-filament::icon :icon="$getEmptyStateIcon()"
+                                    class="fi-ta-empty-state-icon h-6 w-6 text-gray-500 dark:text-gray-400" />
+                            </div>
+                        </div>
+                        <h4
+                            class="fi-ta-empty-state-heading text-base font-semibold leading-6 text-gray-950 dark:text-white">
+                            {{ $getEmptyStateHeading() }}
+                        </h4>
+                        <p class="fi-ta-empty-state-description text-sm text-gray-500 dark:text-gray-400 mt-1">
+                            {{ $getEmptyStateDescription() }}
+                        </p>
+                        {{-- Content --}}
+                    </x-filament::section>
+                @else
+                    <p class="fi-ta-empty-state-heading text-base font-normal text-gray-500 dark:text-white/50">
+                        {{ $getEmptyStateHeading() }}
+                    </p>
+                @endif
+            @endif
+        @endforelse
     </div>
 </x-dynamic-component>

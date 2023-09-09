@@ -6,14 +6,11 @@ use Closure;
 use Filament\Actions\Concerns\HasBadge;
 use Filament\Infolists\Components\Entry;
 use Filament\Support\Concerns\HasExtraAttributes;
-use Filament\Support\Concerns\HasHeading;
 use Thiktak\FilamentSimpleListEntry\Infolists\Traits;
 
 class SimpleListEntry extends Entry
 {
     use HasBadge;
-
-    //use HasHeading;
     use HasExtraAttributes;
     use Traits\HasItemActions;
     use Traits\HasItemExtraAttributes;
