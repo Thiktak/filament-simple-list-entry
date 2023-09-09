@@ -210,7 +210,7 @@ SimpleListEntry::make('checklist')
 
 This plugin is compatible with Light mode and Dark mode.
 
-![image](https://github.com/Thiktak/filament-simple-list-entry/assets/1201486/e4cbc8cb-be47-4b36-b57b-bbcf8493a9b7)
+![image](https://github.com/Thiktak/filament-simple-list-entry/assets/1201486/ba4e658b-77b2-4232-8612-5386ab5c143d)
 
 
 ## Testing
