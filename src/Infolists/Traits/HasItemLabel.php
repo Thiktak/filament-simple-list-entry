@@ -4,7 +4,7 @@ namespace Thiktak\FilamentSimpleListEntry\Infolists\Traits;
 
 use Closure;
 
-trait HasItemlabel
+trait HasItemLabel
 {
     public Closure | string | null $itemLabel = null;
 
