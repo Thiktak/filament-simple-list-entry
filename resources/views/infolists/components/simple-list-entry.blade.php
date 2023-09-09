@@ -13,7 +13,7 @@
             $separator = null;
         
             $l1Class = 'divide-y divide-gray-200 overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-gray-950/5 dark:divide-white/10 dark:bg-gray-900 dark:ring-white/10';
-            $l2Class = 'flex items-center w-full p-3 bg-white gap-x-3 text-gray-700 outline-none transition duration-75 hover:bg-gray-100 focus:bg-gray-100 dark:text-gray-200 dark:hover:bg-white/5 dark:focus:bg-white/5';
+            $l2Class = 'flex items-center w-full p-3 gap-x-3 text-gray-700 outline-none transition duration-75 hover:bg-gray-100 focus:bg-gray-100 dark:text-gray-200 dark:hover:bg-white/5 dark:focus:bg-white/5';
         } else {
             $badge = $getBadge();
             $hasBadge = !empty($badge);
