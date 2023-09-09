@@ -5,11 +5,11 @@ namespace VendorName\Skeleton;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 
-class SkeletonPlugin implements Plugin
+class FilamentSimpleListEntryPlugin implements Plugin
 {
     public function getId(): string
     {
-        return 'skeleton';
+        return 'thiktak/filament-Simple-List-Entry';
     }
 
     public function register(Panel $panel): void

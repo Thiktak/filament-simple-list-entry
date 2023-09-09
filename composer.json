@@ -1,29 +1,28 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "thiktak/filament-simple-list-entry",
+    "type": "project",
+    "description": "Simple List Entry for Infolist",
     "keywords": [
-        ":vendor_name",
         "laravel",
-        ":package_slug"
+        "filament",
+        "filament-plugin"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/Thiktak/filament-simple-list-entry",
     "support": {
-        "issues": "https://github.com/:vendor_slug/:package_slug/issues",
-        "source": "https://github.com/:vendor_slug/:package_slug"
+        "issues": "https://github.com/Thiktak/filament-simple-list-entry/issues",
+        "source": "https://github.com/Thiktak/filament-simple-list-entry"
     },
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Georges OLIVARES",
+            "email": "georges.olivares@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.1",
         "filament/filament": "^3.0",
-        "filament/forms": "^3.0",
-        "filament/tables": "^3.0",
         "spatie/laravel-package-tools": "^1.15.0",
         "illuminate/contracts": "^10.0"
     },
@@ -42,13 +41,12 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "Thiktak\\FilamentSimpleListEntry\\": "src/",
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/"
+            "Thiktak\\FilamentSimpleListEntry\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -68,10 +66,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Thiktak\\FilamentSimpleListEntry\\FilamentSimpleListEntryServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "FilamentSimpleListEntry": "Thiktak\\FilamentSimpleListEntry\\Facades\\FilamentSimpleListEntry"
             }
         }
     },

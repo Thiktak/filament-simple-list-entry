@@ -16,11 +16,11 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 use VendorName\Skeleton\Commands\SkeletonCommand;
 use VendorName\Skeleton\Testing\TestsSkeleton;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+class FilamentSimpleListEntryServiceProvider extends PackageServiceProvider
 {
-    public static string $name = 'skeleton';
+    public static string $name = 'filament-simple-list-entry';
 
-    public static string $viewNamespace = 'skeleton';
+    public static string $viewNamespace = 'thiktak::filament-simple-list-entry';
 
     public function configurePackage(Package $package): void
     {
@@ -36,7 +36,7 @@ class SkeletonServiceProvider extends PackageServiceProvider
                     ->publishConfigFile()
                     ->publishMigrations()
                     ->askToRunMigrations()
-                    ->askToStarRepoOnGitHub(':vendor_slug/:package_slug');
+                    ->askToStarRepoOnGitHub('Thiktak/filament-simple-list-entry');
             });
 
         $configFileName = $package->shortName();
@@ -80,20 +80,20 @@ class SkeletonServiceProvider extends PackageServiceProvider
 
         // Handle Stubs
         if (app()->runningInConsole()) {
-            foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
+            /*foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
                 $this->publishes([
                     $file->getRealPath() => base_path("stubs/skeleton/{$file->getFilename()}"),
                 ], 'skeleton-stubs');
-            }
+            }*/
         }
 
         // Testing
-        Testable::mixin(new TestsSkeleton());
+        //Testable::mixin(new TestsSkeleton());
     }
 
     protected function getAssetPackageName(): ?string
     {
-        return ':vendor_slug/:package_slug';
+        return 'thiktak/filament-simple-list-entry';
     }
 
     /**
@@ -103,8 +103,8 @@ class SkeletonServiceProvider extends PackageServiceProvider
     {
         return [
             // AlpineComponent::make('skeleton', __DIR__ . '/../resources/dist/components/skeleton.js'),
-            Css::make('skeleton-styles', __DIR__ . '/../resources/dist/skeleton.css'),
-            Js::make('skeleton-scripts', __DIR__ . '/../resources/dist/skeleton.js'),
+            //Css::make('skeleton-styles', __DIR__ . '/../resources/dist/skeleton.css'),
+            //Js::make('skeleton-scripts', __DIR__ . '/../resources/dist/skeleton.js'),
         ];
     }
 
@@ -114,7 +114,7 @@ class SkeletonServiceProvider extends PackageServiceProvider
     protected function getCommands(): array
     {
         return [
-            SkeletonCommand::class,
+            //SkeletonCommand::class,
         ];
     }
 
@@ -148,7 +148,7 @@ class SkeletonServiceProvider extends PackageServiceProvider
     protected function getMigrations(): array
     {
         return [
-            'create_skeleton_table',
+            //'create_skeleton_table',
         ];
     }
 }
