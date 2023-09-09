@@ -25,7 +25,7 @@ composer require Thiktak/filament-simple-list-entry
 Use it in your Infolist section.
 
 ```php
-// use Thiktak\FilamentSimpleListEntry\SimpleListEntry
+// use Thiktak\FilamentSimpleListEntry\Infolists\Components\SimpleListEntry;
 
     public static function infolist(Infolist $infolist): Infolist
     {
@@ -51,13 +51,12 @@ All methods:
     * ```->itemLabel(fn ($record) => $record->item)``` specify the label. By default, will try to stringify the record
     * ```->itemDescription(fn ($record) => sprintf('Percentage: %s%%', $record['score'] * 100))``` add description under the label
     * ```->itemIcon(fn($record) => 'heroicon-o-check')``` define an icon.
-    * ```->itemIconColor(fn($record) => 'warning')``` define an color for the icon.
+    * ```->itemIconColor(fn($record) => 'warning')``` define a color for the icon.
     * ```->itemUrl(fn($record) => '#')``` define a link if the user click on the icon, label or description.
     * ```->itemActions(fn($record) => ...)``` define Actions and ActionGroups at the right of the line. See Filament Actions documentation.
 
 ## List of examples
 
-Basic example with a simple list with icon
 <table>
     <tr>
         <td> Example </td> <td> Code </td>
@@ -137,7 +136,11 @@ SimpleListEntry::make('')
     </tr>
     <!-- Example -->
     <tr>
-        <td valign="top">Complexe list with actions</td>
+        <td valign="top">
+            Complexe list with actions
+
+![image](https://github.com/Thiktak/filament-simple-list-entry/assets/1201486/84737aa3-4a3f-440e-92a7-829ae7cfce3c)
+        </td>
         <td>
 
 ```php
