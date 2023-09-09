@@ -1,62 +1,208 @@
-# :package_description
+![image](https://github.com/Thiktak/filament-simple-list-entry/assets/1201486/4744075f-944e-493d-8df9-4ccbffb80446)
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/:vendor_slug/:package_slug/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/:vendor_slug/:package_slug/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
 
-<!--delete-->
----
-This repo can be used to scaffold a Filament plugin. Follow these steps to get started:
+# Simple List Entry (filament InfoList plugin)
 
-1. Press the "Use this template" button at the top of this repo to create a new repo with the contents of this skeleton.
-2. Run "php ./configure.php" to run a script that will replace all placeholders throughout all the files.
-3. Make something great!
----
-<!--/delete-->
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/Thiktak/filament-simple-list-entry.svg?style=flat-square)](https://packagist.org/packages/Thiktak/filament-simple-list-entry)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/Thiktak/filament-simple-list-entry/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/Thiktak/filament-simple-list-entry/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/Thiktak/filament-simple-list-entry/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/Thiktak/filament-simple-list-entry/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/Thiktak/filament-simple-list-entry.svg?style=flat-square)](https://packagist.org/packages/Thiktak/filament-simple-list-entry)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+
+Plugin for FilamentPHP v3.
+
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require :vendor_slug/:package_slug
-```
-
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag=":package_slug-migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag=":package_slug-config"
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag=":package_slug-views"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
+composer require Thiktak/filament-simple-list-entry
 ```
 
 ## Usage
 
+Use it in your Infolist section.
+
 ```php
-$variable = new VendorName\Skeleton();
-echo $variable->echoPhrase('Hello, VendorName!');
+// use Thiktak\FilamentSimpleListEntry\SimpleListEntry
+
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                SimpleListEntry::make('users')
+                    ->label('Default with Icon')
+                    ->itemIcon('heroicon-o-check'),
+            ]);
+    }
 ```
+
+All methods:
+
+* Generic:
+    * ```->label('Define top section label')```
+    * ```->inline(true)``` change the listStyle to inline. Activate separator.
+    * ```->badge(true)``` activate the badge for each line. Desactivate itemActions, itemDescription
+    * ```->separator(',')``` change the separator, by default ```, ``` (coma space)
+    * ```->getStateUsing(['a', 'b', 'c'])``` specify manually the data to be used oterwize use the relationship
+
+* Record specific (all are Closure compatible):
+    * ```->itemLabel(fn ($record) => $record->item)``` specify the label. By default, will try to stringify the record
+    * ```->itemDescription(fn ($record) => sprintf('Percentage: %s%%', $record['score'] * 100))``` add description under the label
+    * ```->itemIcon(fn($record) => 'heroicon-o-check')``` define an icon.
+    * ```->itemIconColor(fn($record) => 'warning')``` define an color for the icon.
+    * ```->itemUrl(fn($record) => '#')``` define a link if the user click on the icon, label or description.
+    * ```->itemActions(fn($record) => ...)``` define Actions and ActionGroups at the right of the line. See Filament Actions documentation.
+
+## List of examples
+
+Basic example with a simple list with icon
+<table>
+    <tr>
+        <td> Example </td> <td> Code </td>
+    </tr>
+    <!-- Example 1 -->
+    <tr>
+        <td valign="top">
+            Default with Icon
+
+![image](https://github.com/Thiktak/filament-simple-list-entry/assets/1201486/7e0ed37a-d4a2-495b-9256-97ed259c6db9)
+        </td>
+        <td>
+
+```php
+SimpleListEntry::make('')
+    ->label('Default with Icon')
+    ->getStateUsing(['a', 'b', 'c'])
+    ->itemIcon('heroicon-o-check'),
+```
+</td>
+    </tr>
+    <!-- Example 2 -->
+    <tr>
+        <td valign="top">
+            Inline badges list with icons & links
+
+![image](https://github.com/Thiktak/filament-simple-list-entry/assets/1201486/d3d065a6-a6d1-4ae9-a14c-16ec4caa8897)
+        </td>
+        <td>
+
+```php
+SimpleListEntry::make('')
+    ->inline(true)
+    ->label('Inline badge with icon & link')
+    ->getStateUsing(['a', 'b', 'c'])
+    ->itemIcon('heroicon-o-check')
+    ->itemUrl(fn ($record) => '#' . $record)
+    ->badge(true),
+```
+</td>
+    </tr>
+    <!-- Example -->
+    <tr>
+        <td valign="top">
+            Inline list with custom separator
+
+![image](https://github.com/Thiktak/filament-simple-list-entry/assets/1201486/f5ed573c-0e89-4314-964c-a9c50117a1af)
+        </td>
+        <td>
+
+```php
+SimpleListEntry::make('')
+    ->listStyle('inline')
+    ->label('inline simple +')
+    ->getStateUsing(['a', 'b', 'c'])
+    ->separator(' + '),
+```
+</td>
+    </tr>
+    <!-- Example -->
+    <tr>
+        <td valign="top">
+            Inline list with Icon
+            
+![image](https://github.com/Thiktak/filament-simple-list-entry/assets/1201486/abd4f68d-8704-4d3f-a8c9-90f8eeeaca11)
+        </td>
+        <td>
+
+```php
+SimpleListEntry::make('')
+    ->listStyle('inline')
+    ->label('inline with Icon')
+    ->getStateUsing(['a', 'b', 'c'])
+    ->itemIcon('heroicon-o-check'),
+```
+</td>
+    </tr>
+    <!-- Example -->
+    <tr>
+        <td valign="top">Complexe list with actions</td>
+        <td>
+
+```php
+SimpleListEntry::make('scoresTop5')
+    ->listStyle('list')
+    ->itemLabel(fn ($record) => $record->item)
+    ->itemUrl(fn ($record) => '#Url-' . $record->id)
+    ->itemActions(
+        fn ($record) => ActionGroup::make([
+            Action::make('view'),
+            Action::make('edit'),
+            Action::make('delete'),
+        ])
+            ->size(ActionSize::Small)
+    ),
+```
+</td>
+    </tr>
+    <!-- Example -->
+    <tr>
+        <td valign="top">
+            Complexe list with custom data, and all options
+
+![image](https://github.com/Thiktak/filament-simple-list-entry/assets/1201486/43716a49-84ea-4d80-bfcd-6d5b0bfa9624)
+        </td>
+        <td>
+
+```php
+SimpleListEntry::make('checklist')
+    ->listStyle('list')
+    ->getStateUsing([
+        ['name' => 'Complete profile #1', 'score' => 1],
+        ['name' => 'Complete profile #2', 'score' => .75]
+    ])
+    ->itemIcon(fn ($record) => match (true) {
+        $record['score'] >= 1 => 'heroicon-o-check',
+        default => 'heroicon-o-exclamation-triangle'
+    })
+    ->itemIconColor(fn ($record) => match (true) {
+        $record['score'] >= 1 => 'success',
+        default => 'danger'
+    })
+    ->itemActions(
+        fn ($record) => [
+            ViewAction::make('view1')
+                    ->url('#View1-' . $record['name']),
+            ActionGroup::make([
+                Action::make('view2')
+                    ->url('#View2-' . $record['name']),
+                Action::make('edit'),
+                Action::make('delete'),
+            ])
+                ->size(ActionSize::Small)
+        ]
+    )
+    ->itemUrl(fn ($record) => '#Url-' . $record['name'])
+    ->itemLabel(fn ($record) => $record['name'])
+    ->itemDescription(function ($record) {
+      return sprintf('Percentage: %s%%', $record['score'] * 100)
+    }),
+```
+</td>
+    </tr>
+</table>
+
 
 ## Testing
 
@@ -78,7 +224,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [:author_name](https://github.com/:author_username)
+- [Thiktak](https://github.com/:Thiktak)
 - [All Contributors](../../contributors)
 
 ## License
