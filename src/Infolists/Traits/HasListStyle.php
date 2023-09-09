@@ -8,11 +8,13 @@ use Thiktak\FilamentSimpleListEntry\Infolists\Enums\SimpleListListStyle;
 trait HasListStyle
 {
     public Closure | bool | null $inline = true;
+
     public Closure | SimpleListListStyle | string | null $listStyle = SimpleListListStyle::list;
 
     public function listStyle($listStyle = SimpleListListStyle::list): self
     {
         $this->listStyle = $listStyle;
+
         return $this;
     }
 
@@ -25,6 +27,7 @@ trait HasListStyle
     {
         $this->listStyle('inline');
         $this->inline = $inline;
+
         return $this;
     }
 

@@ -3,12 +3,10 @@
 namespace Thiktak\FilamentSimpleListEntry\Infolists\Traits;
 
 use Closure;
-use Filament\Actions\ActionGroup;
 use Illuminate\View\ComponentAttributeBag;
 
 trait HasItemExtraAttributes
 {
-
     /**
      * @var array<array<mixed> | Closure>
      */
@@ -37,7 +35,7 @@ trait HasItemExtraAttributes
 
         foreach ($this->itemExtraAttributes as $itemExtraAttributes) {
             $temporaryAttributeBag = $temporaryAttributeBag->merge($this->evaluate($itemExtraAttributes, [
-                'record' => $record
+                'record' => $record,
             ]));
         }
 
