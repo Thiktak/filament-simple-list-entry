@@ -1,4 +1,4 @@
-![image](https://github.com/Thiktak/filament-simple-list-entry/assets/1201486/4744075f-944e-493d-8df9-4ccbffb80446)
+<img src="https://github.com/Thiktak/filament-simple-list-entry/assets/1201486/4744075f-944e-493d-8df9-4ccbffb80446" width="100%" alt="Preview" class="filament-hidden" />
 
 
 # Simple List Entry (filament InfoList plugin)
