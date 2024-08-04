@@ -3,7 +3,7 @@
 namespace Thiktak\FilamentSimpleListEntry\Infolists\Components;
 
 use Closure;
-use Filament\Actions\Concerns\HasBadge;
+use Filament\Support\Concerns\HasBadge;
 use Filament\Infolists\Components\Entry;
 use Filament\Support\Concerns\HasExtraAttributes;
 use Thiktak\FilamentSimpleListEntry\Infolists\Traits;
